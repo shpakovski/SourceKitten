@@ -10,7 +10,9 @@
 
 ##### Bug Fixes
 
-* None.
+* Fix doc.comment blank for many declarations, causing missing Jazzy docs.  
+  [Norio Nomura](https://github.com/norio-nomura)
+  [#142](https://github.com/jpsim/SourceKitten/issues/142)
 
 ## 0.10.0
 
