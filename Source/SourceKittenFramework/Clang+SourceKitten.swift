@@ -147,6 +147,10 @@ extension CXCursor {
             "@note ": "- note: ",
         ]
         var commentBody = rawComment?.commentBody()
+        if let body = commentBody, regexp = try? NSRegularExpression(pattern: "@code(.+?)@endcode", options: [.DotMatchesLineSeparators]) {
+            let range = NSMakeRange(0, (body as NSString).length)
+            commentBody = regexp.stringByReplacingMatchesInString(body, options: [], range: range, withTemplate: "```$1```")
+        }
         for (original, replacement) in replacements {
             commentBody = commentBody?.stringByReplacingOccurrencesOfString(original, withString: replacement)
         }
